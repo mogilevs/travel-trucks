@@ -18,12 +18,12 @@ export default function CarPage() {
   }, [id, dispatch]);
 
   const car = useSelector(selectOneCar);
-  console.log(car, "car");
+
   return (
     <>
       {/* {error && <p>Something went wrong! Please try again later.</p>}
       {loading && <p>Loading...</p>} */}
-      {car && <CarDetails car={car} />}
+      {Object.keys(car).length && <CarDetails car={car} />}
 
       <ul>
         <li>

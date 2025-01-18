@@ -1,0 +1,29 @@
+.header {
+  border-bottom: 1px solid var(--badges);
+  padding: 24px 64px;
+  width: 1440px;
+  height: 72px;
+  background: var(--inputs);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 450px;
+}
+.navMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+.navLink {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+}
+.active {
+  color: var(--button-hover);
+}
+.inactive {
+  color: var(--main);
+}

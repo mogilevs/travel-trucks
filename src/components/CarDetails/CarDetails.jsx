@@ -1,7 +1,6 @@
 import css from "./CarDetails.module.css";
 
 export default function CarDetails({ car }) {
-  console.log(car);
   return (
     <div className={css.wrapper}>
       <h2 className={css.title}>{car.name}</h2>
