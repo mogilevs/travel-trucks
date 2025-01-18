@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getAllCars, getOneCar } from "./operations.js";
 
 const handlePending = (state) => {
+  state.items = [];
+  state.currentCar = {};
   state.isLoading = true;
 };
 
@@ -12,7 +14,7 @@ const handleRejected = (state, action) => {
 
 const carSlice = createSlice({
   name: "cars",
-  initialState: { items: [], isLoading: false, error: null },
+  initialState: { items: [], currentCar: {}, isLoading: false, error: null },
   extraReducers: (builder) => {
     builder
       .addCase(getAllCars.pending, handlePending)
@@ -26,7 +28,7 @@ const carSlice = createSlice({
       .addCase(getOneCar.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = false;
-        state.items = action.payload;
+        state.currentCar = action.payload;
       })
       .addCase(getOneCar.rejected, handleRejected);
   },

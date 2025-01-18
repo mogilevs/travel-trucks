@@ -29,7 +29,7 @@ export default function CarItem({ item }) {
           {item.AC && <p className={css.featuresItem}>AC</p>}
         </div>
         <Link
-          to={`/campers/${item.id}`}
+          to={`/catalog/${item.id}`}
           className={css.showButton}
           target="_blank"
         >

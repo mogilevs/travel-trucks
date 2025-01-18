@@ -18,22 +18,29 @@ export default function SearchForm() {
   const dispatch = useDispatch();
   const handleSubmit = (values) => {
     const { location } = values;
-    const reversedLocation = location.split(", ").reverse().join(", ");
-    console.log({ ...values, location: reversedLocation });
-    dispatch(getAllCars({ ...values, location: reversedLocation }));
-  };
+    const filteredParams = Object.fromEntries(
+      Object.entries(values).filter(([key, value]) => {
+        if (typeof value === "boolean") return value;
+        return value && value.trim() !== "";
+      })
+    );
 
+    if (filteredParams.location) {
+      filteredParams.location = location.split(", ").reverse().join(", ");
+    }
+    dispatch(getAllCars(filteredParams));
+  };
   return (
     <div className={css.formContainer}>
       <Formik
         initialValues={{
-          location: "Kyiv, Ukraine",
+          location: "",
           AC: false,
           TV: false,
           automatic: false,
           bathroom: false,
           kitchen: false,
-          form: "van",
+          form: "",
         }}
         onSubmit={handleSubmit}
       >
