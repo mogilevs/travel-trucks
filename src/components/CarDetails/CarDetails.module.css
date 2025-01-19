@@ -1,20 +1,58 @@
 .wrapper {
 }
 .image {
+  border-radius: 10px;
+  width: 292px;
+  height: 312px;
+  object-fit: cover;
 }
 .title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
 }
 .price {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
+  margin-bottom: 28px;
 }
 .ratingWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: start;
+  margin-bottom: 16px;
 }
 .rating {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: var(--main);
 }
 .location {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--main);
 }
 .description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+  margin-bottom: 60px;
 }
 .list {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 28px;
 }
 .item {
 }

@@ -6,10 +6,10 @@ import CarItem from "../CarItem/CarItem.jsx";
 export default function CarsList() {
   const isLoading = useSelector(selectIsLoading);
   const cars = useSelector(selectCars);
-  console.log("cars", cars);
+
   return (
-    <>
-      {
+    <div>
+      {cars ? (
         <ul className={css.list}>
           {cars.map((item) => (
             <li className={css.item} key={item.id}>
@@ -17,8 +17,11 @@ export default function CarsList() {
             </li>
           ))}
         </ul>
-      }
+      ) : (
+        <p>Nothing found</p>
+      )}
+
       <button className={css.button}>Load more</button>
-    </>
+    </div>
   );
 }

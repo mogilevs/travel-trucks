@@ -3,6 +3,7 @@ import { useId } from "react";
 import css from "./SearchForm.module.css";
 import { useDispatch } from "react-redux";
 import { getAllCars } from "../../redux/operations.js";
+import VehicleList from "../VehicleList/VehicleList.jsx";
 
 export default function SearchForm() {
   const locationFieldId = useId();
@@ -44,72 +45,123 @@ export default function SearchForm() {
         }}
         onSubmit={handleSubmit}
       >
-        <Form className={css.form}>
+        <Form>
           <label className={css.label} htmlFor={locationFieldId}>
             Location
-            <Field
-              name="location"
-              type="text"
-              placeholder="Kyiv, Ukraine"
-              id={locationFieldId}
-            />
           </label>
+          <Field
+            className={css.input}
+            name="location"
+            type="text"
+            placeholder="Kyiv, Ukraine"
+            id={locationFieldId}
+          />
 
-          <label className={css.label}>
-            Vehicle Equipment
-            <div className={css.formGroup}>
-              <div>
-                <Field type="checkbox" name="AC" id={acFieldId} />
-                <label htmlFor={acFieldId}>AC</label>
-              </div>
-              <div>
-                <Field type="checkbox" name="automatic" id={automaticFieldId} />
-                <label htmlFor={automaticFieldId}>Automatic</label>
-              </div>
-              <div>
-                <Field type="checkbox" name="kitchen" id={kitchenFieldId} />
-                <label htmlFor={kitchenFieldId}>Kitchen</label>
-              </div>
-              <div>
-                <Field type="checkbox" name="TV" id={tvFieldId} />
-                <label htmlFor={tvFieldId}>TV</label>
-              </div>
-              <div>
-                <Field type="checkbox" name="bathroom" id={bathroomFieldId} />
-                <label htmlFor={bathroomFieldId}>Bathroom</label>
-              </div>
-            </div>
-          </label>
-
-          <label className={css.label}>
-            Vehicle Type
-            <div>
-              <Field type="radio" name="form" value="van" id={vanFieldId} />
-              <label htmlFor={vanFieldId}>Van</label>
-            </div>
-            <div>
+          <label className={css.label}>filters</label>
+          <VehicleList title="Vehicle Equipment">
+            <li>
               <Field
-                type="radio"
-                name="form"
-                value="fullyIntegrated"
-                id={fullyIntegratedFieldId}
+                className={css.hidden}
+                type="checkbox"
+                name="AC"
+                id={acFieldId}
               />
-              <label htmlFor={fullyIntegratedFieldId}>Fully Integrated</label>
-            </div>
-            <div>
+              <label className={css.equipmentItem} htmlFor={acFieldId}>
+                AC
+              </label>
+            </li>
+            <li>
               <Field
-                type="radio"
-                name="form"
-                value="alcove"
-                id={alcoveFieldId}
+                className={css.hidden}
+                type="checkbox"
+                name="automatic"
+                id={automaticFieldId}
               />
-              <label htmlFor={alcoveFieldId}>Alcove</label>
-            </div>
-          </label>
+              <label className={css.equipmentItem} htmlFor={automaticFieldId}>
+                Automatic
+              </label>
+            </li>
+            <li>
+              <Field
+                className={css.hidden}
+                type="checkbox"
+                name="kitchen"
+                id={kitchenFieldId}
+              />
+              <label className={css.equipmentItem} htmlFor={kitchenFieldId}>
+                Kitchen
+              </label>
+            </li>
+            <li>
+              <Field
+                className={css.hidden}
+                type="checkbox"
+                name="TV"
+                id={tvFieldId}
+              />
+              <label className={css.equipmentItem} htmlFor={tvFieldId}>
+                TV
+              </label>
+            </li>
+            <li>
+              <Field
+                className={css.hidden}
+                type="checkbox"
+                name="bathroom"
+                id={bathroomFieldId}
+              />
+              <label className={css.equipmentItem} htmlFor={bathroomFieldId}>
+                Bathroom
+              </label>
+            </li>
+          </VehicleList>
+          <div>
+            <VehicleList title="Vehicle Type">
+              <li>
+                <Field
+                  className={css.hidden}
+                  type="radio"
+                  name="form"
+                  value="van"
+                  id={vanFieldId}
+                />
+                <label className={css.typeItem} htmlFor={vanFieldId}>
+                  Van
+                </label>
+              </li>
+              <li>
+                <Field
+                  className={css.hidden}
+                  type="radio"
+                  name="form"
+                  value="fullyIntegrated"
+                  id={fullyIntegratedFieldId}
+                />
+                <label
+                  className={css.typeItem}
+                  htmlFor={fullyIntegratedFieldId}
+                >
+                  Fully Integrated
+                </label>
+              </li>
+              <li>
+                <Field
+                  className={css.hidden}
+                  type="radio"
+                  name="form"
+                  value="alcove"
+                  id={alcoveFieldId}
+                />
+                <label className={css.typeItem} htmlFor={alcoveFieldId}>
+                  Alcove
+                </label>
+              </li>
+            </VehicleList>
 
-          <button className={css.button} type="submit">
-            Search
-          </button>
+            <button className={css.button} type="submit">
+              Search
+            </button>
+          </div>
         </Form>
       </Formik>
     </div>

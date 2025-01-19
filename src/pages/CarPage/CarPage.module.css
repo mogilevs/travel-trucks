@@ -1,0 +1,40 @@
+.link {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+  position: relative;
+}
+.active::after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 85px;
+  height: 6px;
+  border: 1px var(--button);
+  background-color: var(--button);
+  bottom: -24px;
+}
+
+.list {
+  display: flex;
+  gap: 40px;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 68px;
+  border-bottom: 1px var(--gray-light);
+  position: relative;
+}
+.list::after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 1312px;
+  height: 2px;
+  border: 1px var(--gray-light);
+  background-color: var(--gray-light);
+  bottom: -24px;
+}
+.container {
+  padding: 48px 64px 80px;
+}

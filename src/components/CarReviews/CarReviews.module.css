@@ -1,20 +1,56 @@
 .reviewsList {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 40px;
+  width: 631px;
 }
 .reviewItem {
 }
 .topWrapper {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  gap: 16px;
+  margin-bottom: 16px;
 }
 .firstLetter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  width: 60px;
+  height: 60px;
+  background: var(--badges);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--button);
 }
 .nameWrapper {
 }
 .name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--main);
 }
 .starsList {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 4px;
 }
 .filledStar {
+  fill: var(--rating);
 }
 .emptyStar {
+  fill: var(--badges);
 }
 .review {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
 }

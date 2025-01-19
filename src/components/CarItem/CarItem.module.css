@@ -1,26 +1,85 @@
 .wrapper {
+  display: flex;
+  align-items: start;
 }
 .image {
+  border-radius: 10px;
+  width: 292px;
+  height: 320px;
+  margin-right: 12px;
+  object-fit: cover;
 }
 .rightPart {
 }
 .firstRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.priceWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: end;
 }
 .title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
 }
 .price {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
 }
 .secondRow {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 16px;
 }
 .rating {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: var(--main);
 }
 .location {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--main);
 }
 .description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
+  margin-bottom: 24px;
 }
 .featuresList {
-}
-.featuresItem {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 .showButton {
+  border-radius: 200px;
+  padding: 16px 60px;
+  width: 166px;
+  height: 56px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  background: var(--button);
 }

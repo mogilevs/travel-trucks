@@ -1,0 +1,25 @@
+.equipmentList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
+  border-bottom: 1px var(--gray-light);
+  margin: 48px 0 48px;
+  position: relative;
+}
+.title::after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 2px;
+  border: 1px var(--gray-light);
+  background-color: var(--gray-light);
+  bottom: -24px;
+}

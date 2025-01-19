@@ -1,6 +1,6 @@
-import { Link, Outlet, useLocation, useParams } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import { Suspense, useEffect, useRef } from "react";
-// import css from "./MovieDetailsPage.module.css";
+import css from "./CarPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneCar } from "../../redux/operations.js";
 import { selectOneCar } from "../../redux/selectors.js";
@@ -9,9 +9,6 @@ import CarDetails from "../../components/CarDetails/CarDetails.jsx";
 export default function CarPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  console.log(id, "id");
-  //   const location = useLocation();
-  //   const backLinkHref = useRef(location.state ?? "/catalog");
 
   useEffect(() => {
     dispatch(getOneCar(id));
@@ -20,22 +17,36 @@ export default function CarPage() {
   const car = useSelector(selectOneCar);
 
   return (
-    <>
+    <div className={css.container}>
       {/* {error && <p>Something went wrong! Please try again later.</p>}
       {loading && <p>Loading...</p>} */}
       {Object.keys(car).length && <CarDetails car={car} />}
 
-      <ul>
+      <ul className={css.list}>
         <li>
-          <Link to="features">Features</Link>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? `${css.link} ${css.active}` : `${css.link}`
+            }
+            to="features"
+          >
+            Features
+          </NavLink>
         </li>
         <li>
-          <Link to="reviews">Reviews</Link>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? `${css.link} ${css.active}` : `${css.link}`
+            }
+            to="reviews"
+          >
+            Reviews
+          </NavLink>
         </li>
       </ul>
       <Suspense fallback={<p>Loading details...</p>}>
         <Outlet />
       </Suspense>
-    </>
+    </div>
   );
 }

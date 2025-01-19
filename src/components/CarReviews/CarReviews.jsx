@@ -24,14 +24,19 @@ export default function CarReviews() {
                     <h3 className={css.name}>{reviewer_name}</h3>
                     <ul className={css.starsList}>
                       {stars.map((star) => (
-                        <li
-                          key={`star+${star}`}
-                          className={
-                            reviewer_rating > star
-                              ? css.filledStar
-                              : css.emptyStar
-                          }
-                        ></li>
+                        <li key={`star+${star}`}>
+                          <svg
+                            width="16"
+                            height="16"
+                            className={
+                              reviewer_rating > star
+                                ? css.filledStar
+                                : css.emptyStar
+                            }
+                          >
+                            <use></use>
+                          </svg>
+                        </li>
                       ))}
                     </ul>
                   </div>
