@@ -1,5 +1,5 @@
-import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
-import { Suspense, useEffect, useRef } from "react";
+import { NavLink, Outlet, useParams } from "react-router-dom";
+import { Suspense, useEffect } from "react";
 import css from "./CarPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneCar } from "../../redux/operations.js";
