@@ -74,7 +74,7 @@ export default function CarFeatures() {
               {car.refrigerator && (
                 <p className={css.featuresItem}>
                   <svg className={css.iconEquipment} width="20" height="20">
-                    <use href={`${Icons}#icon-refrige1`}></use>
+                    <use href={`${Icons}#icon-refridge1`}></use>
                   </svg>
                   refrigerator
                 </p>
