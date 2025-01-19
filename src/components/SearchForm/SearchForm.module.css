@@ -2,9 +2,12 @@
   width: 360px;
   flex-shrink: 0;
 }
+.locationWrapper {
+  position: relative;
+}
 .input {
   border-radius: 12px;
-  padding: 18px 218px 18px 20px;
+  padding: 18px 218px 18px 48px;
   width: 360px;
   height: 56px;
   background: var(--inputs);
@@ -18,7 +21,14 @@
 .input::placeholder {
   color: var(--gray);
 }
-.label {
+.iconLocation {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  /* fill: #6c717b; */
+  fill: #101828;
+}
+.input .label {
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
@@ -34,10 +44,18 @@
   justify-content: center;
   border: 1px solid var(--gray-light);
   border-radius: 12px;
-  padding: 16px 40px;
+  padding: 56px 40px 16px;
   width: 112px;
   height: 96px;
   mix-blend-mode: multiply;
+  gap: 8px;
+  position: relative;
+}
+.iconEquipment {
+  fill: #101828;
+  position: absolute;
+  top: 16px;
+  left: 40px;
 }
 .button {
   margin-top: 8px;
@@ -71,12 +89,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   border: 1px solid var(--gray-light);
   border-radius: 10px;
   padding: 16px 32px;
   width: 112px;
   height: 96px;
   mix-blend-mode: multiply;
+  gap: 8px;
+}
+.typeItem:nth-child(even) {
+  padding: 4px 16px;
+}
+.typeText {
+  text-align: center;
+}
+.iconType {
+  fill: #101828;
 }
 .hidden:checked + .typeItem {
   border: 1px solid var(--button);

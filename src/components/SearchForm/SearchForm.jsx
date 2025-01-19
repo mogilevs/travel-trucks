@@ -4,6 +4,7 @@ import css from "./SearchForm.module.css";
 import { useDispatch } from "react-redux";
 import { getAllCars } from "../../redux/operations.js";
 import VehicleList from "../VehicleList/VehicleList.jsx";
+import Icons from "../../images/sprite.svg";
 
 export default function SearchForm() {
   const locationFieldId = useId();
@@ -49,13 +50,19 @@ export default function SearchForm() {
           <label className={css.label} htmlFor={locationFieldId}>
             Location
           </label>
-          <Field
-            className={css.input}
-            name="location"
-            type="text"
-            placeholder="Kyiv, Ukraine"
-            id={locationFieldId}
-          />
+          <div className={css.locationWrapper}>
+            <Field
+              className={css.input}
+              name="location"
+              type="text"
+              placeholder="Kyiv, Ukraine"
+              id={locationFieldId}
+            />
+
+            <svg className={css.iconLocation} width="20" height="20">
+              <use href={`${Icons}#icon-location1`}></use>
+            </svg>
+          </div>
 
           <label className={css.label}>filters</label>
           <VehicleList title="Vehicle Equipment">
@@ -67,6 +74,9 @@ export default function SearchForm() {
                 id={acFieldId}
               />
               <label className={css.equipmentItem} htmlFor={acFieldId}>
+                <svg className={css.iconEquipment} width="32" height="32">
+                  <use href={`${Icons}#icon-ac1`}></use>
+                </svg>
                 AC
               </label>
             </li>
@@ -78,6 +88,9 @@ export default function SearchForm() {
                 id={automaticFieldId}
               />
               <label className={css.equipmentItem} htmlFor={automaticFieldId}>
+                <svg className={css.iconEquipment} width="32" height="32">
+                  <use href={`${Icons}#icon-automatic1`}></use>
+                </svg>
                 Automatic
               </label>
             </li>
@@ -89,6 +102,9 @@ export default function SearchForm() {
                 id={kitchenFieldId}
               />
               <label className={css.equipmentItem} htmlFor={kitchenFieldId}>
+                <svg className={css.iconEquipment} width="32" height="32">
+                  <use href={`${Icons}#icon-kitchen1`}></use>
+                </svg>
                 Kitchen
               </label>
             </li>
@@ -100,6 +116,9 @@ export default function SearchForm() {
                 id={tvFieldId}
               />
               <label className={css.equipmentItem} htmlFor={tvFieldId}>
+                <svg className={css.iconEquipment} width="32" height="32">
+                  <use href={`${Icons}#icon-tv1`}></use>
+                </svg>
                 TV
               </label>
             </li>
@@ -111,6 +130,9 @@ export default function SearchForm() {
                 id={bathroomFieldId}
               />
               <label className={css.equipmentItem} htmlFor={bathroomFieldId}>
+                <svg className={css.iconEquipment} width="32" height="32">
+                  <use href={`${Icons}#icon-bath1`}></use>
+                </svg>
                 Bathroom
               </label>
             </li>
@@ -126,7 +148,10 @@ export default function SearchForm() {
                   id={vanFieldId}
                 />
                 <label className={css.typeItem} htmlFor={vanFieldId}>
-                  Van
+                  <svg className={css.iconType} width="32" height="32">
+                    <use href={`${Icons}#icon-bi_grid-1x21`}></use>
+                  </svg>
+                  <span className={css.typeText}>Van</span>
                 </label>
               </li>
               <li>
@@ -141,7 +166,10 @@ export default function SearchForm() {
                   className={css.typeItem}
                   htmlFor={fullyIntegratedFieldId}
                 >
-                  Fully Integrated
+                  <svg className={css.iconType} width="32" height="32">
+                    <use href={`${Icons}#icon-bi_grid1`}></use>
+                  </svg>
+                  <span className={css.typeText}>Fully Integrated</span>
                 </label>
               </li>
               <li>
@@ -153,7 +181,10 @@ export default function SearchForm() {
                   id={alcoveFieldId}
                 />
                 <label className={css.typeItem} htmlFor={alcoveFieldId}>
-                  Alcove
+                  <svg className={css.iconType} width="32" height="32">
+                    <use href={`${Icons}#icon-bi_grid-3x3-gap1`}></use>
+                  </svg>
+                  <span className={css.typeText}>Alcove</span>
                 </label>
               </li>
             </VehicleList>

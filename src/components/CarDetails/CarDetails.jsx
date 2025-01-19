@@ -1,4 +1,5 @@
 import css from "./CarDetails.module.css";
+import Icons from "../../images/sprite.svg";
 
 export default function CarDetails({ car }) {
   const formattedPrice = car.price.toLocaleString("en-US", {
@@ -13,9 +14,16 @@ export default function CarDetails({ car }) {
       <h2 className={css.title}>{car.name}</h2>
 
       <div className={css.ratingWrapper}>
+        <svg width="16" height="16" className={css.iconStar}>
+          <use href={`${Icons}#icon-star1`}></use>
+        </svg>
         <p
           className={css.rating}
         >{`${car.rating}(${car.reviews.length} Reviews)`}</p>
+
+        <svg width="16" height="16" className={css.iconEmpty}>
+          <use href={`${Icons}#icon-location1`}></use>
+        </svg>
         <p className={css.location}>{reversedLocation}</p>
       </div>
       <p className={css.price}>{formattedPrice}</p>

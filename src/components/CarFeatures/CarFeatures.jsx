@@ -3,6 +3,7 @@ import VehicleDetail from "../VehicleDetail/VehicleDetail.jsx";
 import css from "./CarFeatures.module.css";
 import { selectOneCar } from "../../redux/selectors.js";
 import Features from "../Features/Features.jsx";
+import Icons from "../../images/sprite.svg";
 
 export default function CarFeatures() {
   const car = useSelector(selectOneCar);
@@ -12,19 +13,106 @@ export default function CarFeatures() {
         <div className={css.featuresContainer}>
           <ul className={css.featuresList}>
             <li>
-              <p className={css.featuresItem}>{car.engine}</p>
+              <p className={css.featuresItem}>
+                <svg className={css.iconEquipment} width="20" height="20">
+                  <use href={`${Icons}#icon-fuel`}></use>
+                </svg>
+                {car.engine}
+              </p>
             </li>
             <li>
-              <p className={css.featuresItem}>{car.transmission}</p>
+              <p className={css.featuresItem}>
+                <svg className={css.iconEquipment} width="20" height="20">
+                  <use href={`${Icons}#icon-automatic1`}></use>
+                </svg>
+                {car.transmission}
+              </p>
             </li>
-            <Features feature="kitchen" car={car} />
-            <Features feature="AC" car={car} />
-            <Features feature="radio" car={car} />
-            <Features feature="bathroom" car={car} />
-            <Features feature="refrigerator" car={car} />
-            <Features feature="microwave" car={car} />
-            <Features feature="gas" car={car} />
-            <Features feature="water" car={car} />
+            <li>
+              {car.kitchen && (
+                <p className={css.featuresItem}>
+                  <svg className={css.iconEquipment} width="20" height="20">
+                    <use href={`${Icons}#icon-kitchen1`}></use>
+                  </svg>
+                  kitchen
+                </p>
+              )}
+            </li>
+            <li>
+              {car.AC && (
+                <p className={css.featuresItem}>
+                  <svg className={css.iconEquipment} width="20" height="20">
+                    <use href={`${Icons}#icon-ac1`}></use>
+                  </svg>
+                  AC
+                </p>
+              )}
+            </li>
+            <li>
+              {car.radio && (
+                <p className={css.featuresItem}>
+                  <svg className={css.iconEquipment} width="20" height="20">
+                    <use href={`${Icons}#icon-radio`}></use>
+                  </svg>
+                  radio
+                </p>
+              )}
+            </li>
+
+            <li>
+              {car.bathroom && (
+                <p className={css.featuresItem}>
+                  <svg className={css.iconEquipment} width="20" height="20">
+                    <use href={`${Icons}#icon-bath1`}></use>
+                  </svg>
+                  bathroom
+                </p>
+              )}
+            </li>
+
+            <li>
+              {car.refrigerator && (
+                <p className={css.featuresItem}>
+                  <svg className={css.iconEquipment} width="20" height="20">
+                    <use href={`${Icons}#icon-refrige1`}></use>
+                  </svg>
+                  refrigerator
+                </p>
+              )}
+            </li>
+
+            <li>
+              {car.microwave && (
+                <p className={css.featuresItem}>
+                  <svg className={css.iconEquipment} width="20" height="20">
+                    <use href={`${Icons}#icon-microwave1`}></use>
+                  </svg>
+                  microwave
+                </p>
+              )}
+            </li>
+
+            <li>
+              {car.gas && (
+                <p className={css.featuresItem}>
+                  <svg className={css.iconEquipment} width="20" height="20">
+                    <use href={`${Icons}#icon-gas1`}></use>
+                  </svg>
+                  gas
+                </p>
+              )}
+            </li>
+
+            <li>
+              {car.water && (
+                <p className={css.featuresItem}>
+                  <svg className={css.iconEquipment} width="20" height="20">
+                    <use href={`${Icons}#icon-water1`}></use>
+                  </svg>
+                  water
+                </p>
+              )}
+            </li>
           </ul>
           <h3 className={css.detailsTitle}>Vehicle details</h3>
           <ul className={css.detailsWrapper}>

@@ -1,10 +1,15 @@
 import { NavLink } from "react-router-dom";
 import css from "./Header.module.css";
+import Icons from "../../images/sprite.svg";
 
 export default function Header() {
   return (
     <header className={css.header}>
-      <NavLink>TravelTrucks</NavLink>
+      <NavLink to="/">
+        <svg width="136" height="16">
+          <use href={`${Icons}#icon-Logo`}></use>
+        </svg>
+      </NavLink>
       <nav className={css.navMenu}>
         <NavLink
           to="/"

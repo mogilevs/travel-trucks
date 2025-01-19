@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
 import css from "./CarItem.module.css";
 import { Link } from "react-router-dom";
-import Features from "../Features/Features.jsx";
 import { useState } from "react";
 import { addFavourite, removeFavourite } from "../../redux/favouritesSlice.js";
+import Icons from "../../images/sprite.svg";
 
 export default function CarItem({ item }) {
   const [isFavourite, setIsFavourite] = useState(false);
@@ -39,29 +39,61 @@ export default function CarItem({ item }) {
               onClick={toggleFavourites}
               className={isFavourite ? css.iconFilled : css.iconEmpty}
             >
-              <use></use>
+              <use href={`${Icons}#icon-favourite1`}></use>
             </svg>
           </div>
         </div>
         <div className={css.secondRow}>
+          <svg width="16" height="16" className={css.iconStar}>
+            <use href={`${Icons}#icon-star1`}></use>
+          </svg>
           <p
             className={css.rating}
           >{`${item.rating}(${item.reviews.length} Reviews)`}</p>
+
+          <svg width="16" height="16" className={css.iconEmpty}>
+            <use href={`${Icons}#icon-location1`}></use>
+          </svg>
           <p className={css.location}>{reversedLocation}</p>
         </div>
         <p className={css.description}>{formattedDescription}</p>
         <div className={css.featuresList}>
-          <Features feature="automatic" car={item} />
-          <Features feature="engine" car={item} />
-          <Features feature="kitchen" car={item} />
-          <Features feature="AC" car={item} />
-          {/* <Features feature="radio" car={item} />
-          <Features feature="transmission" car={item} />
-          <Features feature="bathroom" car={item} />
-          <Features feature="refrigerator" car={item} />
-          <Features feature="microwave" car={item} />
-          <Features feature="gas" car={item} />
-          <Features feature="water" car={item} /> */}
+          <li>
+            <p className={css.featuresItem}>
+              <svg className={css.iconEquipment} width="20" height="20">
+                <use href={`${Icons}#icon-automatic1`}></use>
+              </svg>
+              {item.transmission}
+            </p>
+          </li>
+          <li>
+            <p className={css.featuresItem}>
+              <svg className={css.iconEquipment} width="20" height="20">
+                <use href={`${Icons}#icon-fuel`}></use>
+              </svg>
+              {item.engine}
+            </p>
+          </li>
+          <li>
+            {item.kitchen && (
+              <p className={css.featuresItem}>
+                <svg className={css.iconEquipment} width="20" height="20">
+                  <use href={`${Icons}#icon-kitchen1`}></use>
+                </svg>
+                kitchen
+              </p>
+            )}
+          </li>
+          <li>
+            {item.AC && (
+              <p className={css.featuresItem}>
+                <svg className={css.iconEquipment} width="20" height="20">
+                  <use href={`${Icons}#icon-ac1`}></use>
+                </svg>
+                AC
+              </p>
+            )}
+          </li>
         </div>
         <Link
           to={`/catalog/${item.id}`}

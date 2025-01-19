@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import css from "./CarReviews.module.css";
 import { selectOneCar } from "../../redux/selectors.js";
+import Icons from "../../images/sprite.svg";
 
 export default function CarReviews() {
   const car = useSelector(selectOneCar);
@@ -34,7 +35,7 @@ export default function CarReviews() {
                                 : css.emptyStar
                             }
                           >
-                            <use></use>
+                            <use href={`${Icons}#icon-star1`}></use>
                           </svg>
                         </li>
                       ))}
