@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getOneCar } from "../../redux/operations.js";
 import { selectOneCar } from "../../redux/selectors.js";
 import CarDetails from "../../components/CarDetails/CarDetails.jsx";
+import OrderForm from "../../components/OrderForm/OrderForm.jsx";
 
 export default function CarPage() {
   const dispatch = useDispatch();
@@ -21,7 +22,6 @@ export default function CarPage() {
       {/* {error && <p>Something went wrong! Please try again later.</p>}
       {loading && <p>Loading...</p>} */}
       {Object.keys(car).length && <CarDetails car={car} />}
-
       <ul className={css.list}>
         <li>
           <NavLink
@@ -44,9 +44,12 @@ export default function CarPage() {
           </NavLink>
         </li>
       </ul>
-      <Suspense fallback={<p>Loading details...</p>}>
-        <Outlet />
-      </Suspense>
+      <div className={css.bottomPart}>
+        <OrderForm />
+        <Suspense fallback={<p>Loading details...</p>}>
+          <Outlet />
+        </Suspense>
+      </div>
     </div>
   );
 }

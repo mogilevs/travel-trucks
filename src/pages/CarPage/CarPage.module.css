@@ -38,3 +38,9 @@
 .container {
   padding: 48px 64px 80px;
 }
+.bottomPart {
+  display: flex;
+  gap: 40px;
+  justify-content: end;
+  align-items: start;
+}

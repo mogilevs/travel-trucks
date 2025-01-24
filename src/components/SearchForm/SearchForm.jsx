@@ -29,7 +29,6 @@ export default function SearchForm() {
     if (filteredParams.location) {
       filteredParams.location = location.split(", ").reverse().join(", ");
     }
-    console.log("filteredParams", filteredParams);
     dispatch(getAllCars({ ...filteredParams }));
   };
 
