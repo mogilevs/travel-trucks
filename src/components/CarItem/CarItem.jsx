@@ -1,12 +1,16 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import css from "./CarItem.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { addFavourite, removeFavourite } from "../../redux/favouritesSlice.js";
 import Icons from "../../images/sprite.svg";
+import { selectFavourites } from "../../redux/selectors.js";
 
 export default function CarItem({ item }) {
-  const [isFavourite, setIsFavourite] = useState(false);
+  const favourites = useSelector(selectFavourites);
+  const storedElem = favourites.find((elem) => elem.id === item.id) || {};
+  const storedisFavourite = item.id === storedElem.id;
+  const [isFavourite, setIsFavourite] = useState(storedisFavourite);
   const dispatch = useDispatch();
   const formattedPrice = item.price.toLocaleString("en-US", {
     style: "currency",
@@ -57,7 +61,7 @@ export default function CarItem({ item }) {
           <p className={css.location}>{reversedLocation}</p>
         </div>
         <p className={css.description}>{formattedDescription}</p>
-        <div className={css.featuresList}>
+        <ul className={css.featuresList}>
           <li>
             <p className={css.featuresItem}>
               <svg className={css.iconEquipment} width="20" height="20">
@@ -94,7 +98,7 @@ export default function CarItem({ item }) {
               </p>
             )}
           </li>
-        </div>
+        </ul>
         <Link
           to={`/catalog/${item.id}`}
           className={css.showButton}

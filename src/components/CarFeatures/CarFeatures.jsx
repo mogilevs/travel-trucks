@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import VehicleDetail from "../VehicleDetail/VehicleDetail.jsx";
 import css from "./CarFeatures.module.css";
 import { selectOneCar } from "../../redux/selectors.js";
-import Features from "../Features/Features.jsx";
 import Icons from "../../images/sprite.svg";
 
 export default function CarFeatures() {

@@ -3,10 +3,12 @@ import { selectCars, selectIsLoading } from "../../redux/selectors";
 import css from "./CarsList.module.css";
 import CarItem from "../CarItem/CarItem.jsx";
 
-export default function CarsList() {
+export default function CarsList({ page, setPage }) {
   const isLoading = useSelector(selectIsLoading);
   const cars = useSelector(selectCars);
-
+  function handleClick() {
+    setPage((page += 1));
+  }
   return (
     <div>
       {cars ? (
@@ -21,7 +23,9 @@ export default function CarsList() {
         <p>Nothing found</p>
       )}
 
-      <button className={css.button}>Load more</button>
+      <button className={css.button} onClick={handleClick} type="button">
+        Load more
+      </button>
     </div>
   );
 }

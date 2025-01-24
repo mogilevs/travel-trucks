@@ -43,13 +43,12 @@ p {
 
 button {
   border: 0px;
+  cursor: pointer;
 }
 button:hover {
   background: var(--button-hover);
 }
-button:focus,
-button:focus-visible {
-}
+
 ul {
   list-style-type: none;
   margin: 0;

@@ -16,7 +16,6 @@ export default function SearchForm() {
   const vanFieldId = useId();
   const fullyIntegratedFieldId = useId();
   const alcoveFieldId = useId();
-
   const dispatch = useDispatch();
   const handleSubmit = (values) => {
     const { location } = values;
@@ -30,8 +29,10 @@ export default function SearchForm() {
     if (filteredParams.location) {
       filteredParams.location = location.split(", ").reverse().join(", ");
     }
-    dispatch(getAllCars(filteredParams));
+    console.log("filteredParams", filteredParams);
+    dispatch(getAllCars({ ...filteredParams }));
   };
+
   return (
     <div className={css.formContainer}>
       <Formik
