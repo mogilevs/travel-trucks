@@ -6,6 +6,7 @@ import Icons from "../../images/sprite.svg";
 
 export default function CarFeatures() {
   const car = useSelector(selectOneCar);
+
   return (
     <>
       {Object.keys(car).length && (

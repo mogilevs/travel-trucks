@@ -3,6 +3,8 @@ import { useId } from "react";
 import css from "./OrderForm.module.css";
 import * as Yup from "yup";
 import { notifySuccess } from "../../services/notification.js";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function OrderForm() {
   const nameFieldId = useId();
@@ -41,56 +43,62 @@ export default function OrderForm() {
         onSubmit={handleSubmit}
         validationSchema={FeedbackSchema}
       >
-        <Form className={css.form}>
-          <div className={css.inputWrapper}>
-            <label className={css.label} htmlFor={nameFieldId}>
-              Name*
-            </label>
-            <Field
-              className={css.input}
-              name="name"
-              type="text"
-              id={nameFieldId}
-            />
-          </div>
-          <div className={css.inputWrapper}>
-            <label className={css.label} htmlFor={emailFieldId}>
-              Email*
-            </label>
-            <Field
-              className={css.input}
-              name="email"
-              type="email"
-              id={emailFieldId}
-            />
-          </div>
-          <div className={css.inputWrapper}>
-            <label className={css.label} htmlFor={dateFieldId}>
-              Date*
-            </label>
-            <Field
-              className={css.input}
-              name="date"
-              type="text"
-              id={dateFieldId}
-            />
-          </div>
-          <div className={css.inputWrapper}>
-            <label className={css.label} htmlFor={commentFieldId}>
-              Comment
-            </label>
-            <Field
-              as="textarea"
-              className={css.comment}
-              name="comment"
-              type="text"
-              id={commentFieldId}
-            />
-          </div>
-          <button className={css.button} type="submit">
-            Send
-          </button>
-        </Form>
+        {({ setFieldValue }) => (
+          <Form className={css.form}>
+            <div className={css.inputWrapper}>
+              <label className={css.label} htmlFor={nameFieldId}>
+                Name*
+              </label>
+              <Field
+                className={css.input}
+                name="name"
+                type="text"
+                id={nameFieldId}
+              />
+            </div>
+            <div className={css.inputWrapper}>
+              <label className={css.label} htmlFor={emailFieldId}>
+                Email*
+              </label>
+              <Field
+                className={css.input}
+                name="email"
+                type="email"
+                id={emailFieldId}
+              />
+            </div>
+            <div className={css.inputWrapper}>
+              <label className={css.label} htmlFor={dateFieldId}>
+                Date*
+              </label>
+              <Field name="date" type="text" id={dateFieldId}>
+                {({ field }) => (
+                  <DatePicker
+                    selected={field.value}
+                    onChange={(date) => setFieldValue("date", date)}
+                    dateFormat="dd/MM/yyyy"
+                    className={css.input}
+                  />
+                )}
+              </Field>
+            </div>
+            <div className={css.inputWrapper}>
+              <label className={css.label} htmlFor={commentFieldId}>
+                Comment
+              </label>
+              <Field
+                as="textarea"
+                className={css.comment}
+                name="comment"
+                type="text"
+                id={commentFieldId}
+              />
+            </div>
+            <button className={css.button} type="submit">
+              Send
+            </button>
+          </Form>
+        )}
       </Formik>
     </div>
   );

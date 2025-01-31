@@ -37,6 +37,7 @@
   position: absolute;
   top: 18px;
   left: 18px;
+  z-index: 1;
 }
 .input {
   background: var(--inputs);

@@ -1,15 +1,16 @@
 import { useSelector } from "react-redux";
 import css from "./CarReviews.module.css";
-import { selectOneCar } from "../../redux/selectors.js";
 import Icons from "../../images/sprite.svg";
 
 export default function CarReviews() {
   const car = useSelector(selectOneCar);
+
   const { reviews } = car;
   const stars = [];
   for (let i = 1; i < 5; i += 1) {
     stars[i] = i + 1;
   }
+
   return (
     <>
       {Object.keys(car).length && reviews.length === 0 ? (
